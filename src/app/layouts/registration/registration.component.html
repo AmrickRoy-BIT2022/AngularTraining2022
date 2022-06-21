@@ -1,0 +1,70 @@
+<ul *ngFor="let item of getda">
+  <li>
+    {{item}}
+  </li>
+</ul>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" [ngClass]="{'show': showModal}"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" (click)="showModal = false" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Modal Body...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="showModal = false" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Button trigger modal -->
+<button type="button" (click)="showModal = true" class="btn btn-primary" data-toggle="modal"
+  data-target="#exampleModal">
+  Launch demo modal
+</button>
+<br><br>
+
+<div class="row">
+  <div class="col-4">
+    <h1 style="margin: 10px;">Angular Material Datepicker</h1>
+    <div class="card border-primary d-inline-block">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="col-4">
+    <div>
+      <h1>Angular Material Button Toggle</h1>
+      <mat-button-toggle-group #toggleBtn="matButtonToggleGroup" class="card border-info">
+        <mat-button-toggle value="BMW">
+          BMW
+        </mat-button-toggle>
+        <mat-button-toggle value="AUDI">
+          AUDI
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+      <br />
+      You have selected : {{ toggleBtn.value }}
+    </div>
+  </div>
+  <div class="col-4">
+    <h1>Angular Material Radio Button</h1>
+    <mat-radio-group aria-label="Select an option">
+      <mat-radio-button value="1">Angular</mat-radio-button>
+      <mat-radio-button value="2">React</mat-radio-button>
+    </mat-radio-group>
+    
+  </div>
+</div>
