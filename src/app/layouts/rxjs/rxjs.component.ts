@@ -26,13 +26,18 @@ export class RxjsComponent implements OnInit {
   videoSub: Subscription;
   empSub: Subscription;
   stdSub: Subscription;
+  UserName:any = "Amrick";
   users: any = from([
     { name: 'amrick', skill: 'angular' },
     { name: 'soubhik', skill: 'node' },
     { name: 'rubel', skill: 'magento' },
   ]);
 
-  constructor(private webService: WebServiceService) {}
+  constructor(private webService: WebServiceService) {
+    this.webService.UserName.subscribe(res =>{
+      this.UserName = res;
+    })
+  }
 
   ngOnInit(): void {
     let getItems = new Promise((resolve, reject) => {
@@ -50,12 +55,12 @@ export class RxjsComponent implements OnInit {
     // INTERVAL AND TIMER IN ANGULAR (BOTH ARE SAME)
     // Timer(delay, interval)
     // const braoadcastVideos = interval(2000);
-    const braoadcastVideos = timer(3000, 2000);
+    const braoadcastVideos = timer(1000, 2000);
     this.videoSub = braoadcastVideos.subscribe((res) => {
       console.log(res);
       this.obsMsg = 'video ' + res;
       this.webService.print(this.obsMsg, 'elContainer');
-      if (res >= 5) {
+      if (res >= 2) {
         this.videoSub.unsubscribe();
       }
     });
