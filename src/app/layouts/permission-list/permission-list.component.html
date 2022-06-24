@@ -1,0 +1,28 @@
+<h1 style="text-align:center;color:rgb(255, 21, 21); font-size: 30px;"><strong>Permission List</strong></h1>
+<div class="card border-primary mx-5">
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Menu Name</th>
+                <th scope="col">Permission</th>
+                <th scope="col">Rating</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="permissions">
+            <tr *ngFor="let list of permissions, let i= index">
+                <td>{{i+1}}</td>
+                <td>{{list.name}}</td>
+                <td class="text-left">
+                    <mat-radio-group aria-label="Select an option" class="example-radio-group" [(ngModel)]="list.isActive">
+                        <mat-radio-button class="example-radio-button" style="margin-right: 10px"
+                            value="true">Yes</mat-radio-button>
+                        <mat-radio-button class="example-radio-button" value="false">No
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </td>
+                <td><ngx-star-rating  [(ngModel)]="list.rating" [id]="'rating'+i" [disabled]="false" ></ngx-star-rating></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

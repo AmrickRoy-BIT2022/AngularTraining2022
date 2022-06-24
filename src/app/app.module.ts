@@ -8,6 +8,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RxjsComponent } from './layouts/rxjs/rxjs.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SubjectComponent } from './layouts/subject/subject.component';
+import { PermissionListComponent } from './layouts/permission-list/permission-list.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 @NgModule({
   declarations: [
@@ -15,13 +18,18 @@ import { SubjectComponent } from './layouts/subject/subject.component';
     LoginComponent,
     RxjsComponent,
     SubjectComponent,
+    PermissionListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule, 
-    ReactiveFormsModule, BrowserAnimationsModule,
+    ReactiveFormsModule, 
+    BrowserAnimationsModule,
+    MatRadioModule,
+    NgxStarRatingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
