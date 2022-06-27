@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { ChartsComponent } from './layouts/charts/charts.component';
 import { PermissionListComponent } from './layouts/permission-list/permission-list.component';
 import { RxjsComponent } from './layouts/rxjs/rxjs.component';
-import { SelectionComponent } from './selection/selection.component';
+import { SelectionComponent } from './layouts/selection/selection.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,11 @@ const routes: Routes = [
   {
     path: 'select',
     component: SelectionComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'charts',
+    component: ChartsComponent,
     canActivate: [AuthGuard],
   },
 ];

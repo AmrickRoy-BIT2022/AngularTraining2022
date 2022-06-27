@@ -69,6 +69,17 @@ export class DemoComponent implements OnInit {
     this.router.navigate(['/rxjs']);
   }
 
+  list(){
+    this.router.navigate(['/list']);  
+  }
+
+  select(){
+    this.router.navigate(['/select']);  
+  }
+  charts(){
+    this.router.navigate(['/charts']);  
+  }
+
   // getService(){
   //   // let data = this.webService.getService();
   //   this.webService.getValue().subscribe((res: any)=>{

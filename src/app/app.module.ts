@@ -10,9 +10,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SubjectComponent } from './layouts/subject/subject.component';
 import { PermissionListComponent } from './layouts/permission-list/permission-list.component';
 import { MatRadioModule } from '@angular/material/radio';
-import { NgxStarRatingModule } from 'ngx-star-rating';
-import { SelectionComponent } from './selection/selection.component';
-import { NgSelectModule } from '@ng-select/ng-select';
+// import { NgxStarRatingModule } from 'ngx-star-rating';
+import { SelectionComponent } from './layouts/selection/selection.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ChartsComponent } from './layouts/charts/charts.component';
+import * as CanvasJSAngularChart from '../lib/canvasjs.angular.component';
+
+var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +25,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     SubjectComponent,
     PermissionListComponent,
     SelectionComponent,
+    ChartsComponent,
+    CanvasJSChart
   ],
   imports: [
     BrowserModule,
@@ -30,8 +36,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ReactiveFormsModule, 
     BrowserAnimationsModule,
     MatRadioModule,
-    NgxStarRatingModule,
-    NgSelectModule
+    // NgxStarRatingModule,
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

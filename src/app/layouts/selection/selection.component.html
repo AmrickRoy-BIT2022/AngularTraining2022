@@ -1,0 +1,11 @@
+<h1>Angular Multiselect Dropdown with Search</h1>
+  
+<ng-multiselect-dropdown
+  [placeholder]="'Select your option'"
+  [settings]="dropdownSettings"
+  [data]="dropdownList"
+  [(ngModel)]="selectedItems"
+  (onSelect)="onItemSelect($event)"
+  (onSelectAll)="onSelectAll($event)"
+>
+</ng-multiselect-dropdown>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$';
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: UntypedFormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  loginSubmit(form: FormGroup) {
+  loginSubmit(form: UntypedFormGroup) {
     console.log(form.value);
     localStorage.setItem('isLoggedin', 'true');
     this.router.navigate(['/demo']);
