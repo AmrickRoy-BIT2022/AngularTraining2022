@@ -11,7 +11,8 @@ import { SubjectComponent } from './layouts/subject/subject.component';
 import { PermissionListComponent } from './layouts/permission-list/permission-list.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { NgxStarRatingModule } from 'ngx-star-rating';
-
+import { SelectionComponent } from './selection/selection.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +20,7 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
     RxjsComponent,
     SubjectComponent,
     PermissionListComponent,
+    SelectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,8 +30,8 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
     ReactiveFormsModule, 
     BrowserAnimationsModule,
     MatRadioModule,
-    NgxStarRatingModule
-
+    NgxStarRatingModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { PermissionListComponent } from './layouts/permission-list/permission-list.component';
 import { RxjsComponent } from './layouts/rxjs/rxjs.component';
+import { SelectionComponent } from './selection/selection.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'list',
     component: PermissionListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'select',
+    component: SelectionComponent,
     canActivate: [AuthGuard],
   },
 ];

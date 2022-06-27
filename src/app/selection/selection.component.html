@@ -1,0 +1,11 @@
+<h1>Angular Multiselect Dropdown with Search</h1>
+  
+<ng-select [items]="categories"
+               bindLabel="name"
+               placeholder="Select Category"
+               appendTo="body"
+               [multiple]="true"
+               [(ngModel)]="selected">
+</ng-select>
+  
+<button (click)="getSelectedValue()">Get Selected Values</button>
