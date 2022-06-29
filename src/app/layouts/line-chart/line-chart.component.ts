@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-charts',
-  templateUrl: './charts.component.html',
-  styleUrls: ['./charts.component.scss']
+  selector: 'app-line-chart',
+  templateUrl: './line-chart.component.html',
+  styleUrls: ['./line-chart.component.scss']
 })
-export class ChartsComponent implements OnInit {
+export class LineChartComponent implements OnInit {
 
+  
   chartOptions = {
     title: {
       text: "Basic Column Chart in Angular"
@@ -23,6 +24,7 @@ export class ChartsComponent implements OnInit {
     }]
 			  
   };
+
 
   constructor() { }
 

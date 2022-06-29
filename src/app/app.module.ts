@@ -13,8 +13,10 @@ import { MatRadioModule } from '@angular/material/radio';
 // import { NgxStarRatingModule } from 'ngx-star-rating';
 import { SelectionComponent } from './layouts/selection/selection.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { ChartsComponent } from './layouts/charts/charts.component';
 import * as CanvasJSAngularChart from '../lib/canvasjs.angular.component';
+import { BarChartComponent } from './layouts/bar-chart/bar-chart.component';
+import { LineChartComponent } from './layouts/line-chart/line-chart.component';
+
 
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 @NgModule({
@@ -25,8 +27,9 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     SubjectComponent,
     PermissionListComponent,
     SelectionComponent,
-    ChartsComponent,
-    CanvasJSChart
+    CanvasJSChart,
+    BarChartComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,

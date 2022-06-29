@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
-import { ChartsComponent } from './layouts/charts/charts.component';
+import { BarChartComponent } from './layouts/bar-chart/bar-chart.component';
+import { LineChartComponent } from './layouts/line-chart/line-chart.component';
 import { PermissionListComponent } from './layouts/permission-list/permission-list.component';
 import { RxjsComponent } from './layouts/rxjs/rxjs.component';
 import { SelectionComponent } from './layouts/selection/selection.component';
@@ -42,7 +43,12 @@ const routes: Routes = [
   },
   {
     path: 'charts',
-    component: ChartsComponent,
+    component: LineChartComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'bar-chart',
+    component: BarChartComponent,
     canActivate: [AuthGuard],
   },
 ];

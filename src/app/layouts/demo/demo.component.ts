@@ -32,8 +32,8 @@ export class DemoComponent implements OnInit {
   }
 
   getValue() {
-    this.webService.getService().subscribe(
-      (res: any) => {
+    this.webService.getService().subscribe({
+      next: (res: any) => {
         this.array2 = res.dataseries;
         this.array3 = this.array2.slice(this.startIn, this.pagesize);
         console.log(this.array3);
@@ -41,10 +41,10 @@ export class DemoComponent implements OnInit {
         console.log('this.dataSource =>', this.dataSource);
         this.length = this.array2.length;
       },
-      (err) => {
+      error: (err) => {
         console.log(err);
-      }
-    );
+      },
+    });
   }
 
   onPageFired(event: PageEvent) {
@@ -69,15 +69,18 @@ export class DemoComponent implements OnInit {
     this.router.navigate(['/rxjs']);
   }
 
-  list(){
-    this.router.navigate(['/list']);  
+  list() {
+    this.router.navigate(['/list']);
   }
 
-  select(){
-    this.router.navigate(['/select']);  
+  select() {
+    this.router.navigate(['/select']);
   }
-  charts(){
-    this.router.navigate(['/charts']);  
+  charts() {
+    this.router.navigate(['/charts']);
+  }
+  bChart(){
+    this.router.navigate(['/bar-chart']); 
   }
 
   // getService(){
