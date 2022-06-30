@@ -16,8 +16,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import * as CanvasJSAngularChart from '../lib/canvasjs.angular.component';
 import { BarChartComponent } from './layouts/bar-chart/bar-chart.component';
 import { LineChartComponent } from './layouts/line-chart/line-chart.component';
-
-
+import { UploadComponent } from './layouts/upload/upload.component';
+import {MatCardModule} from '@angular/material/card';
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     SelectionComponent,
     CanvasJSChart,
     BarChartComponent,
-    LineChartComponent
+    LineChartComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -39,8 +40,10 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     ReactiveFormsModule, 
     BrowserAnimationsModule,
     MatRadioModule,
+    MatCardModule,
     // NgxStarRatingModule,
     NgMultiSelectDropDownModule.forRoot(),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

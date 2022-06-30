@@ -6,6 +6,7 @@ import { LineChartComponent } from './layouts/line-chart/line-chart.component';
 import { PermissionListComponent } from './layouts/permission-list/permission-list.component';
 import { RxjsComponent } from './layouts/rxjs/rxjs.component';
 import { SelectionComponent } from './layouts/selection/selection.component';
+import { UploadComponent } from './layouts/upload/upload.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,11 @@ const routes: Routes = [
   {
     path: 'bar-chart',
     component: BarChartComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'upload',
+    component: UploadComponent,
     canActivate: [AuthGuard],
   },
 ];

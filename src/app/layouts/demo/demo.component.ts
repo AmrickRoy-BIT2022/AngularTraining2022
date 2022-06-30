@@ -82,6 +82,9 @@ export class DemoComponent implements OnInit {
   bChart(){
     this.router.navigate(['/bar-chart']); 
   }
+  upload(){
+    this.router.navigate(['/upload']); 
+  }
 
   // getService(){
   //   // let data = this.webService.getService();
