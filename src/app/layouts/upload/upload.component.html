@@ -1,13 +1,39 @@
 <div class="card" style="display: flex;align-items: center;justify-content: center; padding: 10px;">
   <!-- Image File -->
-  <div class="card border-primary" style="display:inline-block; padding: 10px;">
+  <!-- <div class="card border-primary" style="display:inline-block; padding: 10px;">
     <button class="col-sm-12 stylings" mat-raised-button (click)="file.click()">{{caption}}</button>
     <input hidden type="file" accept="image/*" #file onclick="this.value = null" (change)="onSelectFile($event)">
     <mat-card class="col-sm-12" style="padding:4px">
       <div style="display: flex;align-items: center;justify-content: center;">
-        <img [src]="selectedImage" class="img-responsive img" />
+        <img [src]="selectedImage" class="img-responsive img" width="200px" height="200px" />
       </div>
     </mat-card>
+  </div> -->
+  <div class="card border-primary" style="display:inline-block; padding: 5px;">
+    <form>
+      <div class="form-group">
+        <fieldset class="form-group">
+
+          <span style="color: rgb(211, 0, 0);">{{imageError}}</span>
+          <div class="custom-file fileInputProfileWrap">
+            <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
+            <div class="img-space">
+
+              <ng-container *ngIf="isImageSaved; else elseTemplate">
+                <img [src]="cardImageBase64" />
+              </ng-container>
+              <ng-template #elseTemplate>
+
+                <img src="../../../assets/placeholder.png" class="img-responsive" width="200px" height="200px">
+              </ng-template>
+
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+      <a class="btn btn-danger" (click)="removeImage()" *ngIf="isImageSaved">Remove</a>
+    </form>
   </div>
   <br>
   <!-- Pdf File -->

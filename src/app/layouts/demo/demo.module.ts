@@ -14,6 +14,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DemoComponent } from './demo.component';
 import { DemoRoutingModule } from './demo-routing.module';
+import { MatTableExporterModule } from 'mat-table-exporter';
+
 
 @NgModule({
   declarations: [DemoComponent],
@@ -34,6 +36,7 @@ import { DemoRoutingModule } from './demo-routing.module';
     MatToolbarModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTableExporterModule,
   ],
   exports: [
     CommonModule,
