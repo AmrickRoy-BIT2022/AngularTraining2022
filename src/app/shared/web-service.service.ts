@@ -33,6 +33,10 @@ export class WebServiceService {
     );
   }
 
+  getList(){
+    return this.httpClient.get('https://date.nager.at/api/v2/publicholidays/2020/US');
+  }
+
   print(val: string, containerId: string) {
     let el = document.createElement('li');
     el.innerText = val;

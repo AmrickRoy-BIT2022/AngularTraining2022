@@ -14,10 +14,11 @@ import { MatRadioModule } from '@angular/material/radio';
 import { SelectionComponent } from './layouts/selection/selection.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import * as CanvasJSAngularChart from '../lib/canvasjs.angular.component';
-import { BarChartComponent } from './layouts/bar-chart/bar-chart.component';
 import { LineChartComponent } from './layouts/line-chart/line-chart.component';
 import { UploadComponent } from './layouts/upload/upload.component';
 import {MatCardModule} from '@angular/material/card';
+import { HolidayListComponent } from './layouts/holiday-list/holiday-list.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 @NgModule({
   declarations: [
@@ -28,9 +29,9 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     PermissionListComponent,
     SelectionComponent,
     CanvasJSChart,
-    BarChartComponent,
     LineChartComponent,
-    UploadComponent
+    UploadComponent,
+    HolidayListComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,7 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     MatCardModule,
     // NgxStarRatingModule,
     NgMultiSelectDropDownModule.forRoot(),
-    
+    YouTubePlayerModule  
   ],
   providers: [],
   bootstrap: [AppComponent]

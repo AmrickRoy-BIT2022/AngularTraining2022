@@ -1,4 +1,4 @@
-<div class="card" style="display: flex;align-items: center;justify-content: center; padding: 10px;">
+<div class="row" style="display: flex;align-items: center;justify-content: center; padding: 15px;">
   <!-- Image File -->
   <!-- <div class="card border-primary" style="display:inline-block; padding: 10px;">
     <button class="col-sm-12 stylings" mat-raised-button (click)="file.click()">{{caption}}</button>
@@ -9,42 +9,64 @@
       </div>
     </mat-card>
   </div> -->
-  <div class="card border-primary" style="display:inline-block; padding: 5px;">
-    <form>
-      <div class="form-group">
-        <fieldset class="form-group">
+  <div class="col-3">
+    <div class="card border-primary" style="display:inline-block; padding: 5px;">
+      <form>
+        <div class="form-group">
+          <fieldset class="form-group">
 
-          <span style="color: rgb(211, 0, 0);">{{imageError}}</span>
-          <div class="custom-file fileInputProfileWrap">
-            <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
-            <div class="img-space">
+            <span style="color: rgb(211, 0, 0);">{{imageError}}</span>
+            <div class="custom-file fileInputProfileWrap">
+              <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
+              <div class="img-space">
 
-              <ng-container *ngIf="isImageSaved; else elseTemplate">
-                <img [src]="cardImageBase64" />
-              </ng-container>
-              <ng-template #elseTemplate>
+                <ng-container *ngIf="isImageSaved; else elseTemplate">
+                  <img [src]="cardImageBase64" />
+                </ng-container>
+                <ng-template #elseTemplate>
 
-                <img src="../../../assets/placeholder.png" class="img-responsive" width="200px" height="200px">
-              </ng-template>
+                  <img src="../../../assets/placeholder.png" class="img-responsive" width="200px" height="200px">
+                </ng-template>
+
+              </div>
 
             </div>
+          </fieldset>
+        </div>
+        <a class="btn btn-danger" (click)="removeImage()" *ngIf="isImageSaved">Remove</a>
+      </form>
+    </div>
+  </div>
+  <div class="col-3">
+    <!-- Pdf File -->
+    <div class="card border-primary" style="display:inline-block; padding: 10px;">
+      <button class="col-sm-12 stylings" mat-raised-button (click)="file1.click()">{{captionPdf}}</button>
+      <input hidden type='file' accept="application/pdf" #file1 onclick="this.value = null"
+        (change)="onSelectPdfFile($event)">
+      <mat-card class="col-sm-12" style="padding:4px">
+        <div style="display: flex;align-items: center;justify-content: center;">
+          <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(selectedPdf)" width="200px" height="200px"></iframe>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="card border-primary" style="display:inline-block; padding: 10px;">
+      <button class="col-sm-12 stylings" mat-raised-button (click)="file2.click()">{{captionVideo}}</button>
+      <input hidden type='file' accept="video/mp4" #file2 onclick="this.value = null"
+        (change)="onSelectVideoFile($event)">
+      <mat-card class="col-sm-12" style="padding:4px">
+        <div style="display: flex;align-items: center;justify-content: center;">
+          <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(selectedVideo)" width="200px" height="200px"></iframe>
+        </div>
+      </mat-card>
+    </div>
+  </div>
 
-          </div>
-        </fieldset>
-      </div>
-      <a class="btn btn-danger" (click)="removeImage()" *ngIf="isImageSaved">Remove</a>
-    </form>
+  <div class="card col-3 border-primary" style="display: flex;align-items: center;justify-content: center">
+    <youtube-player videoId="LXb3EKWsInQ" suggestedQuality="highres" [height]="250" [width]="300" [startSeconds]="43"
+      [endSeconds]="60">
+    </youtube-player>
   </div>
-  <br>
-  <!-- Pdf File -->
-  <div class="card border-primary" style="display:inline-block; padding: 10px;">
-    <button class="col-sm-12 stylings" mat-raised-button (click)="file1.click()">{{captionPdf}}</button>
-    <input hidden type='file' accept="application/pdf" #file1 onclick="this.value = null"
-      (change)="onSelectPdfFile($event)">
-    <mat-card class="col-sm-12" style="padding:4px">
-      <div style="display: flex;align-items: center;justify-content: center;">
-        <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(selectedPdf)" width="200px" height="200px"></iframe>
-      </div>
-    </mat-card>
-  </div>
+
 </div>

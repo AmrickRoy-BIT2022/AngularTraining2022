@@ -13,7 +13,7 @@ export class LineChartComponent implements OnInit {
       text: "Basic Column Chart in Angular"
     },
     data: [{
-      type: "line",
+      type: "bar",
       dataPoints: [
         { label: "Apple",  y: 10  },
         { label: "Orange", y: 15  },

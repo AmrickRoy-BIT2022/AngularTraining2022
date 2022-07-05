@@ -79,11 +79,11 @@ export class DemoComponent implements OnInit {
   charts() {
     this.router.navigate(['/charts']);
   }
-  bChart(){
-    this.router.navigate(['/bar-chart']); 
-  }
   upload(){
     this.router.navigate(['/upload']); 
+  }
+  hList(){
+    this.router.navigate(['/holiday-list']); 
   }
 
   // getService(){

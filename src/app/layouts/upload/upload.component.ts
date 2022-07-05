@@ -1,29 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import * as _ from 'lodash';
 
 @Component({
   selector: 'app-upload',
+  template: '<youtube-player videoId="LXb3EKWsInQ"></youtube-player>',
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.scss'],
 })
 export class UploadComponent implements OnInit {
   imageToUpload: File = null;
+  videoToUpload: File = null;
   selectedImage: string = 'https://dummyimage.com/318x200/000/fff';
   selectedPdf: string = 'https://dummyimage.com/318x200/000/fff';
+  selectedVideo: string = '../../../assets/video.png';
   caption = 'Choose an image';
   captionPdf = 'Choose a PDF';
+  captionVideo = 'Choose a video';
   imageError: string;
   isImageSaved: boolean;
   cardImageBase64: string;
+  safeSrc: SafeResourceUrl;
 
   constructor(
     private _formBuilder: FormBuilder,
     public sanitizer: DomSanitizer
-  ) {}
+  ) {
+    
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.body.appendChild(tag);
+  }
 
   // onSelectFile(event: any) {
   //   if (event.target.files && event.target.files[0]) {
@@ -42,6 +53,16 @@ export class UploadComponent implements OnInit {
       reader.readAsDataURL(this.imageToUpload);
       reader.onload = (e) => (this.selectedPdf = reader.result.toString());
       this.captionPdf = event.target.files[0].name;
+    }
+  }
+
+  onSelectVideoFile(event: any){
+    if (event.target.files && event.target.files[0]) {
+      this.videoToUpload = event.target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(this.videoToUpload);
+      reader.onload = (e) => (this.selectedVideo = reader.result.toString());
+      this.captionVideo = event.target.files[0].name;
     }
   }
 

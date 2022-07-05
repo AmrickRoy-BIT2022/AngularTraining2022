@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
-import { BarChartComponent } from './layouts/bar-chart/bar-chart.component';
 import { LineChartComponent } from './layouts/line-chart/line-chart.component';
 import { PermissionListComponent } from './layouts/permission-list/permission-list.component';
 import { RxjsComponent } from './layouts/rxjs/rxjs.component';
@@ -28,6 +27,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'holiday-list',
+    loadChildren: () =>
+      import('./layouts/holiday-list/holiday-list.module').then(
+        (dem) => dem.HolidayListModule
+      ),
+  },
+  {
     path: 'rxjs',
     component: RxjsComponent,
     canActivate: [AuthGuard],
@@ -45,11 +51,6 @@ const routes: Routes = [
   {
     path: 'charts',
     component: LineChartComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'bar-chart',
-    component: BarChartComponent,
     canActivate: [AuthGuard],
   },
   {
