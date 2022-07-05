@@ -13,7 +13,7 @@ export class UploadComponent implements OnInit {
   imageToUpload: File = null;
   videoToUpload: File = null;
   selectedImage: string = 'https://dummyimage.com/318x200/000/fff';
-  selectedPdf: string = 'https://dummyimage.com/318x200/000/fff';
+  selectedPdf: string = '../../../assets/pdf.png';
   selectedVideo: string = '../../../assets/video.png';
   caption = 'Choose an image';
   captionPdf = 'Choose a PDF';
